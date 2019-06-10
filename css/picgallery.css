@@ -1,0 +1,16 @@
+h1{
+	color: aqua;
+	text-align: center;
+}
+
+.gallery img{
+	width: 150px;
+	height: 150px;
+	padding: 20px;
+	transition: 1s;
+}
+
+.gallery img:hover{
+
+	transform: scale(1.5);
+}
