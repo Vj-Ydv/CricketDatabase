@@ -33,6 +33,7 @@
                 border-radius: 7px;
                 display: grid;
                 grid-template-columns: 16% 84%;
+                
                 height:200px;
                 background-color: darkkhaki;
             }
@@ -43,10 +44,10 @@
                 padding:70px 20px 20px 20px;
             }
             img{
-                border-radius: 10px;
+                border-radius: 13px;
             }
             .playername{
-               
+                
                 font-size: 50px;
                 font-weight: bold;
             }
@@ -90,6 +91,14 @@
                 
                
             }
+            .image{
+                padding-top: 9px;
+                padding-left: 9px;
+            }
+            .playercountry{
+                width: 600px;
+            }
+            
         </style>
 
     </head>
@@ -99,10 +108,10 @@
     <?php
         $playername=$_GET['PlayerName'];
 
-        $host='db4free.net';
-        $username='vijayyadav';
-        $password='vijayyadav';
-        $database='cricdatabase';
+        $host='localhost';
+        $username='root';
+        $password='vijay';
+        $database='crud';
     
         $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
         //echo "successfully connnected";
@@ -131,15 +140,28 @@
 
         <div class="container">
             <div class="topheader">
-               
-                <div class="topcolumn1">
+               <table>
+                   <tr>
+                       <td class="img" >
+                        <img class="image" src="img/<?php echo $image ?>" height="160px" width="160px">
+                       </td>
+
+                       <td>
+                         <div class="playercountry">
+                            <span class=playername> <?php echo $playername ?></span><br>
+                            <span class="countryname"> <?php echo $country ?></span>
+                         </div>
+                       </td>
+                   </tr>
+               </table>
+                <!-- <div class="topcolumn1">
                     <img src="img/<?php echo $image ?>" height="160px" width="160px">
                 </div>
                 <div class="topcolumn2">
                     
                    <span class=playername> <?php echo $playername ?></span><br>
                    <span class="countryname"> <?php echo $country ?></span>
-                </div>
+                </div> -->
             </div>
 
             <div class="bottompart">

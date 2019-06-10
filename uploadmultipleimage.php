@@ -190,7 +190,7 @@
      $(function() {
 
 // Define maximum number of files.
-    var max_file_number = 10,
+    var max_file_number = 12,
     // Define your form id or class or just tag.
     $form = $('form'), 
     // Define your upload field class or id or tag.
