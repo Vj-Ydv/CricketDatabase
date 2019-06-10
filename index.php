@@ -124,7 +124,7 @@
             <li class="menulist"><a href="adddata.php">Add data</a></li>
             <li class="menulist"><a href="viewdata.php" target="_blank">View data</a></li>
             <li class="menulist"><a href="http://vizayyadav.blogspot.com" target="_blank">My blog</a></li>
-            <li class="menulist"><a href="feedbackform.html" target="_blank">Send feedback</a></li>
+            <!-- <li class="menulist"><a href="feedbackform.html" target="_blank">Send feedback</a></li> -->
 		</ul>
     </div>
     

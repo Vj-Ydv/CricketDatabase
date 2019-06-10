@@ -105,7 +105,7 @@
             padding: 10px 10px 10px 10px;
             border: 1px solid #BFBFBF;
             background-color: white;
-            box-shadow: 10px 10px 5px antiquewhite;
+            box-shadow: 10px 10px 5px pink;
         }
         div.rotate_right {
                 float: left;
@@ -135,7 +135,7 @@
 
             <label>Browse for images here...</label><br>
             <input type="file" name="file[]" id="profile-img" class="uploadbtn" multiple><br>
-            <input class="button" type="submit" name="submit" value="Upload image">
+            <input id="submit" class="button" type="submit" name="submit" value="Upload image">
         </form>
         <div>
             <div id="imgs"></div>
@@ -144,22 +144,22 @@
     
     <div class="column2">
         <div class="polaroid rotate_right">
-        <img src="img/dhoni2.jpg" alt="Pulpit rock" width="260" height="213">
+        <img src="img/dhoni2.jpg" alt="Player 1" width="260" height="213">
         <!-- <p class="caption">The pulpit rock in Lysefjorden, Norway.</p> -->
         </div>
 
         <div class="polaroid rotate_left">
-        <img src="img/ab2.jpg" alt="Monterosso al Mare" width="260" height="213">
+        <img src="img/ab2.jpg" alt="Player 2" width="260" height="213">
         <!-- <p class="caption">Monterosso al Mare. One of the five villages in Cinque Terre, Italy.</p> -->
         </div>
 
         <div class="polaroid rotate_right">
-        <img src="img/virat3.jpg" alt="Monterosso al Mare" width="260" height="213">
+        <img src="img/virat3.jpg" alt="Player 3" width="260" height="213">
         <!-- <p class="caption">Monterosso al Mare. One of the five villages in Cinque Terre, Italy.</p> -->
         </div>
 
         <div class="polaroid rotate_left">
-        <img src="img/gayle1.jpg" alt="Monterosso al Mare" width="260" height="213">
+        <img src="img/gayle1.jpg" alt="Player 4" width="260" height="213">
         <!-- <p class="caption">Monterosso al Mare. One of the five villages in Cinque Terre, Italy.</p> -->
         </div>
 
@@ -186,6 +186,33 @@
 
         }
      });
+
+     $(function() {
+
+// Define maximum number of files.
+    var max_file_number = 10,
+    // Define your form id or class or just tag.
+    $form = $('form'), 
+    // Define your upload field class or id or tag.
+    $file_upload = $('#profile-img', $form), 
+    // Define your submit class or id or tag.
+    $button = $('#submit', $form); 
+
+    // Disable submit button on page ready.
+   // $button.prop('disabled', 'disabled');
+
+    $file_upload.on('change', function () {
+    var number_of_images = $(this)[0].files.length;
+    if (number_of_images > max_file_number) {
+        alert(`You can upload maximum ${max_file_number} files.`);
+        $(this).val('');
+        $button.prop('disabled', 'disabled');
+    } else {
+        $button.prop('disabled', false);
+    }
+    });
+    });
+
 </script>
 
  

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Image slider</title>
+  <title>Image Gallery</title>
   
   <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
   <link rel="stylesheet" type="text/css" href="css/slider.css">
@@ -28,7 +28,7 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <?php
-      $name=$_GET['Name'];
+      $name=$_GET['PlayerName'];
       include('connection.php');
       $sql="select * from imagegallery where Name='$name'";
       $result=mysqli_query($conn,$sql) or die(mysqli_error($conn));
@@ -41,10 +41,10 @@
             ?>
               <div class="swiper-slide" >
                 <div class="imgBx">
-                  <a href="img/<?php echo $imagename ?>" data-lightbox="MyGallery"><img src="img/<?php echo $imagename ?>"></a>
+                  <a href="gallery/<?php echo $imagename ?>" data-lightbox="MyGallery"><img src="gallery/<?php echo $imagename ?>"></a>
                 </div>
                 <div class="details">
-                  <h3><?php echo $imagename ?><br><span>Picture <?php echo $id++ ?></span></h3>
+                  <h3>Image <?php echo $id++ ?></h3>
                 </div>
               </div>      
     

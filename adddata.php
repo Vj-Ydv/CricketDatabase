@@ -24,19 +24,19 @@
                 width:1000px;
                 margin: auto;
                 padding: 5%;
-                border: 1px solid pink;
-                box-shadow: -7px 7px 8px pink
+                border: 1px solid teal;
+                box-shadow: -7px 7px 8px teal;
 
             }
 
             .h2{
-                color: darkviolet;
+                color: teal;
                 text-align: center;
                 font-size: 30px;
             }
 
             .button {
-                background-color: darkviolet;
+                background-color: teal;
                 border: none;
                 color: white;
                 padding: 12px 30px;
@@ -65,7 +65,7 @@
                 padding-left:12%;
             }
             .uploadbtn {
-                background-color: darkviolet;
+                background-color: teal;
                 border: none;
                 color: white;
                 /* padding: 8px 20px; */
@@ -91,6 +91,9 @@
                 padding-left: 20px;
 
             }
+            textarea{
+                padding-top: 20px;
+            }
             select{
                 font-size: 16px;
                 height: 40px;
@@ -100,8 +103,8 @@
             }
             
             .min-max-input:focus {
-                outline: 1px darkviolet;
-                box-shadow: 4px 4px 4px  darkviolet;
+                outline: 1px teal;
+                box-shadow: 4px 4px 4px  teal;
             }
 
         </style>
@@ -201,30 +204,30 @@
 
                         <tr>
                             <td><label>Teams</label></td>
-                            <td><textarea  rows="50" cols="100" class="min-max-input" name="teams"
+                            <td><textarea style="height:100px; " rows="50" cols="100" class="min-max-input" name="teams"
                             ng-blur="$ctrl.blur('text')" ng-change="$ctrl.changeText('text')"
                             ng-model-options="{debounce: 500}" ng-model="$ctrl.text"></textarea></td>
                         </tr>
 
                         <tr>
                             <td><label>Description</label></td>
-                            <td><textarea  rows="400" cols="100" class="min-max-input" name="description"
+                            <td><textarea style="height:300px; " rows="400" cols="100" class="min-max-input" name="description"
                             ng-blur="$ctrl.blur('text')" ng-change="$ctrl.changeText('text')"
                             ng-model-options="{debounce: 500}" ng-model="$ctrl.text"></textarea></td>
                         </tr>
                         
                     </table>
                     <div class="buttonclass">
-                        <input class="button" type="submit" name="submit" value="Add Record">
+                        <input style=" border-radius:12px;" class="button" type="submit" name="submit" value="Add Record">
                       
                     </div>
                     </div>
 
                     <div>
-                        <img src="" width="250px" height="250px" id="profile-img-tag" onerror="if (this.src != 'img/upload3.png') this.src = 'img/upload3.png';" /><br>
-                        <input type="file" name="file" id="profile-img" class="uploadbtn"><br>
+                        <img style="padding-top:15px; border-radius:50%;" src="" width="250px" height="250px" id="profile-img-tag" onerror="if (this.src != 'img/upload3.png') this.src = 'img/upload3.png';" /><br>
+                        <input style=" border-radius:12px;" type="file" name="file" id="profile-img" class="uploadbtn"><br>
                         
-                        <a  href="uploadmultipleimage.php" target="_blank"><label  style="cursor:pointer; color:darkviolet;">Upload multiple images to gallery</label></a>
+                        <a  href="uploadmultipleimage.php" target="_blank"><label  style="cursor:pointer; color:teal;">Upload multiple images to gallery</label></a>
                        
                     </div>
                 </div>

@@ -122,6 +122,10 @@
             $birthplace=$row['BirthPlace'];
             $teams=$row['Teams'];
             $description=$row['Description'];
+            $date1=date("Y-m-d");
+            $date2=$born;  
+            $diff = abs(strtotime($date2) - strtotime($date1));
+            $years = floor($diff / (365*60*60*24));
         }
     ?>
 
@@ -142,7 +146,7 @@
                 <div class="column1">
                     <span class="personalinfo">Personal Information</span><br><br>
                     <table>
-                        <tr><td><span class="personalinfo1">Born:</span></td> <td><?php echo $born ?></td></tr>
+                        <tr><td><span class="personalinfo1">Born:</span></td> <td><?php echo $born ?><span> (<?php echo $years ?> years)</span></td></tr>
                         <tr><td><span class="personalinfo1">Birthplace:</span></td> <td> <?php echo $birthplace ?></td></tr>
                         <tr><td><span class="personalinfo1">Role:</span></span></td> <td> <?php echo $role ?></td></tr>
                         <tr><td><span class="personalinfo1"> Batting Style:</span></td> <td> <?php echo $battingstyle ?></td></tr>

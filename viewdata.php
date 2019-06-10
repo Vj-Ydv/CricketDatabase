@@ -105,6 +105,18 @@
             margin: 4px 2px;
             cursor: pointer;
         }
+        .btnprofile {
+            background-color:teal;
+            border: none;
+            color: white;
+            padding: 8px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
         .innerdata{
             color:darkblue;
         }
@@ -121,16 +133,20 @@
 
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search ..." title="Type in a name">
         <table id="myTable">
+        <thead>
             <tr>
                 <th>SN</th>
                 <th>Image</th>
                 <th>Players </th>
                 <th>Country</th>
+                <th>Profile Detail</th>
+                <th>View Gallery</th>
                 <th>Update</th>
                 <th>Delete</th>
-                <th>View Gallery</th>
+                
             </tr>
-
+        </thead>
+        <tbody>
             <?php
                 //include_once "connection.php";
                 $host='localhost';
@@ -155,15 +171,19 @@
                         $bowlingstyle=$row['BowlingStyle'];
                         $image=$row['Image'];
                         $country=$row['Country'];
+                        $date1=date("Y-m-d");
+                        $date2=$born;  
+                        $diff = abs(strtotime($date2) - strtotime($date1));
+                        $years = floor($diff / (365*60*60*24));
                         ?>
                         <tr>
                             <td><?php echo $snn++ ?></td>
                             <td>
-                              <a href="img/<?php echo $image ?>" data-lightbox="MyGallery" data-title="<?php echo $image ?>"><img src="img/<?php echo $image ?>" height="150px" width="150px"></a>
+                              <a href="img/<?php echo $image ?>" data-lightbox="MyGallery" data-title="<?php echo $image ?>"><img style="border-radius: 7px;" src="img/<?php echo $image ?>" height="150px" width="150px"></a>
                             </td>
                             <td>
                                 <p class="innerdata"><span class="innerdata1">Name:</span> <?php echo $playername ?></p>
-                                <p ><span class="innerdata1">Born: </span> <?php echo $born ?></p>
+                                <p ><span class="innerdata1">Born: </span> <?php echo $born ?><span> (<?php echo $years ?> years)</span></p>
                                 <p ><span class="innerdata1">Role:</span> <?php echo $role ?></p>
                                 <p ><span class="innerdata1">Batting:</span> <?php echo $battingstyle ?></p>
                                 <p ><span class="innerdata1">Bowling:</span> <?php echo $bowlingstyle ?></p>
@@ -172,15 +192,21 @@
                             </td>
                             <td><?php echo $country ?></td>
                             <td>
-                                <a href="edit.php?SN=<?php echo $sn ?>"><button class="button" type="button">Update</button></a>
+                                 <a href="detailprofile.php?PlayerName=<?php echo $playername ?>"><button class="btnprofile" type="button">View Detail</button></a><br>
+                                 <!-- <a href="viewgallery.php?PlayerName=<?php echo $playername ?>"><button class="btngallery" type="button">View Gallery</button></a> -->
+
+                            </td>
+                            <td>
+                                 <a href="viewgallery.php?PlayerName=<?php echo $playername ?>"><button class="btngallery" type="button">View Gallery</button></a>
+                            </td>
+                            <td>
+                                <a href="edit.php?sno=<?php echo $sn ?>"><button class="button" type="button">Update</button></a>
                                 
                             </td>
                             <td>
-                                 <a href="delete.php?SN=<?php echo $sn ?>"><button class="btndelete" type="button">Delete</button></a>
+                                 <a href="delete.php?PlayerName=<?php echo $playername ?>"><button class="btndelete" type="button">Delete</button></a>
                             </td>
-                            <td>
-                                 <a href="viewgallery.php?Name=<?php echo $name ?>"><button class="btngallery" type="button">View Gallery</button></a>
-                            </td>
+                            
                         </tr>
                         <?php
                     }
@@ -188,18 +214,42 @@
                 }
 
             ?>
-
+        </tbody>
         </table>
 
         <script>
+            function filterTable(event) {
+                var filter = event.target.value.toUpperCase();
+                var rows = document.querySelector("#myTable tbody").rows;
+                
+                for (var i = 0; i < rows.length; i++) {
+                    var firstCol = rows[i].cells[2].textContent.toUpperCase();
+                    var secondCol = rows[i].cells[3].textContent.toUpperCase();
+                    if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }      
+                }
+            }
+
+            document.querySelector('#myInput').addEventListener('keyup', filterTable, false);
+                    
+        
+        </script>   
+
+        <!-- <script>
             function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
+            
+
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
+                 td = tr[i].getElementsByTagName("td")[2];
+                
                 if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -210,7 +260,7 @@
                 }       
             }
             }
-        </script>
+        </script> -->
 
     </body>
 </html>
