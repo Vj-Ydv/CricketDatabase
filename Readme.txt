@@ -1,4 +1,3 @@
-This is a simple php web application to keep the record of cricket players.
+for demo visit:
 
-For live webpage visit:
 https://cricdb.herokuapp.com/

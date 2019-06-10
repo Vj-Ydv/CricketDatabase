@@ -11,10 +11,10 @@
     $description=$_POST['description'];
 
 
-    $host='db4free.net';
-    $username='vijayyadav';
-    $password='vijayyadav';
-    $database='cricdatabase';
+    $host='localhost';
+    $username='root';
+    $password='vijay';
+    $database='crud';
 
     $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
     //echo "successfully connnected";
@@ -22,10 +22,10 @@
     $result=mysqli_query($conn,$sql) or die(mysqli_error($conn));
     if($result==true)
     {
-       // echo "Record Successfully added";
-       move_uploaded_file($_FILES['file']['tmp_name'],"img/$image");
-       header('location:adddata.php');
-       
+        move_uploaded_file($_FILES['file']['tmp_name'],"img/$image");
+         header('location:adddata.php');
+        // echo "<script>alert('New record successfully added.');document.location='adddata.php'</script>";
+        
     }
     else
     {

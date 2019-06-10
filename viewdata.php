@@ -149,10 +149,10 @@
         <tbody>
             <?php
                 //include_once "connection.php";
-                $host='db4free.net';
-                $username='vijayyadav';
-                $password='vijayyadav';
-                $database='cricdatabase';
+                $host='localhost';
+                $username='root';
+                $password='vijay';
+                $database='crud';
 
                 $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
                 //echo "successfully connnected";
