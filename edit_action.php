@@ -12,10 +12,10 @@
     $teams=$_POST['teams'];
     $description=$_POST['description'];
 
-    $host='localhost';
-    $username='root';
-    $password='vijay';
-    $database='crud';
+    $host='db4free.net';
+    $username='vijayyadav';
+    $password='vijayyadav';
+    $database='cricdatabase';
 
     if($image!="")
     {
