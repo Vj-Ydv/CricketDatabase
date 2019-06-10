@@ -108,10 +108,10 @@
     <?php
         $playername=$_GET['PlayerName'];
 
-        $host='localhost';
-        $username='root';
-        $password='vijay';
-        $database='crud';
+        $host='db4free.net';
+        $username='vijayyadav';
+        $password='vijayyadav';
+        $database='cricdatabase';
     
         $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
         //echo "successfully connnected";
