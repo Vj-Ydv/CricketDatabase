@@ -1,5 +1,5 @@
 <?php
-    echo $playername=$_GET['PlayerName'];
+    $playername=$_GET['PlayerName'];
 
     $host='localhost';
     $username='root';
