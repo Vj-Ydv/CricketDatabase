@@ -10,13 +10,13 @@
     $teams=$_POST['teams'];
     $description=$_POST['description'];
 
+    include('connection.php');
+    // $host='localhost';
+    // $username='root';
+    // $password='vijay';
+    // $database='crud';
 
-    $host='db4free.net';
-    $username='vijayyadav';
-    $password='vijayyadav';
-    $database='cricdatabase';
-
-    $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
+    // $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
     //echo "successfully connnected";
     $sql="insert into info(PlayerName,Born,Role,BattingStyle,BowlingStyle,Image,Country,BirthPlace,Teams,Description) values('$playername','$born','$role','$battingstyle','$bowlingstyle','$image','$country','$birthplace','$teams','$description')";
     $result=mysqli_query($conn,$sql) or die(mysqli_error($conn));

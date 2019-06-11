@@ -1,12 +1,12 @@
 <?php
     $playername=$_GET['PlayerName'];
+    include('connection.php');
+    // $host='localhost';
+    // $username='root';
+    // $password='vijay';
+    // $database='crud';
 
-    $host='db4free.net';
-    $username='vijayyadav';
-    $password='vijayyadav';
-    $database='cricdatabase';
-
-    $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
+    // $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
     $sql="delete info, imagegallery from info inner join imagegallery on info.PlayerName=imagegallery.Name where info.PlayerName='$playername'";
     $sql1="delete from info where PlayerName='$playername'";
 
