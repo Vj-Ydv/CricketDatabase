@@ -1,8 +1,8 @@
 <?php
-    $host='sql312.epizy.com';
-    $username='epiz_24030608';
-    $password='Jv4FJUx7wtbP';
-    $database='epiz_24030608_cricdatabase';
+    $host='db4free.net';
+    $username='vijayyadav';
+    $password='vijayyadav';
+    $database='cricdatabase';
 
     $conn=mysqli_connect($host,$username,$password,$database) or die(mysqli_error($conn));
     //echo "successfully connnected";
